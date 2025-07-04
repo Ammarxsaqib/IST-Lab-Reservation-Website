@@ -1,0 +1,476 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --primary-color: #fff;
+  --secondary-color: #222;
+  --change-color: #222;
+  --change-color2: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme {
+  --primary-color: #222;
+  --secondary-color: #fff;
+  --change-color: #131313;
+  --change-color2: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background: var(--change-color);
+  perspective: 1px;
+  transform-style: preserve-3d;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 32px;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.navbar a {
+  position: relative;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 40px;
+}
+
+.navbar a::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+.navbar a:hover::before {
+  width: 100%;
+}
+
+html {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.section1,
+.section2 {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.text {
+  top: 30%;
+  left: 50%;
+  position: absolute;
+  font-family: "Franklin Gothic Heavy";
+  font-size: 5.2vw;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3),
+    5px 5px 70px rgba(255, 255, 255, 0.5);
+  transform: scale(1, 1.1) translate(-50%, 10%);
+  text-align: center;
+}
+
+.section2 {
+  background-color: var(--secondary-color);
+}
+
+.section1::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url("Background-01.png") top center;
+  background-size: cover;
+  transform: translateZ(-1px) scale(2.2);
+  filter: blur(2px);
+}
+.section1::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url("earth-01.png") top center;
+  background-size: cover;
+}
+
+.section1 .text {
+  top: 10%;
+  transform: translateZ(-0.5px) scale(1.5, 1.6) translate(-33%, 10%);
+}
+
+.header li img {
+  width: 130px;
+  height: auto;
+}
+
+.section2 {
+  position: relative;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 50px 0;
+  text-align: center;
+}
+
+.heading {
+  margin-bottom: 30px;
+}
+
+.heading img {
+  width: 400px;
+  height: auto;
+  margin-bottom: 25px;
+}
+
+.heading h1 {
+  font-size: 40px;
+  margin: 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow to text */
+}
+
+.section2:hover .info,
+.info:focus {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  margin: 70px;
+  border: 1px solid transparent; /* Remove existing border */
+  border-radius: 10px; /* Add border radius for smoother edges */
+}
+
+.info p {
+  font-family: "Poppins", sans-serif;
+  color: var(--secondary-color);
+  font-size: 21px;
+  line-height: 1.6;
+  margin-bottom: 50px;
+  text-align: justify;
+}
+
+.box-1 a {
+  text-decoration: none;
+}
+.btn-one {
+  color: #fff;
+  transition: all 0.3s;
+  position: relative;
+  text-align: center;
+  font-size: 40px;
+  margin: 50px;
+}
+
+.btn-one span {
+  transition: all 0.3s;
+}
+
+.btn-one::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: var(--change-color2);
+  border-bottom-color: var(--change-color2);
+  transform: scale(0.1, 1);
+}
+
+.btn-one:hover span {
+  letter-spacing: 2px;
+}
+
+.btn-one:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.btn-one::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-one:hover::after {
+  opacity: 0;
+  transform: scale(0.1, 1);
+}
+
+.footer {
+  background-color: var(--change-color);
+  padding: 20px 0;
+  text-align: center;
+}
+
+.social-icons img {
+  width: 70px;
+  height: 70px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Add transition for smooth effect */
+}
+
+.social-icons img:hover {
+  transform: scale(1.1); /* Scale up the size on hover */
+}
+
+.center-heading {
+  text-align: center;
+  margin-top: 20px; /* Adjust as needed */
+}
+
+.center-heading h2 {
+  color: #fff; /* Adjust color as needed */
+}
+
+#dark_icon {
+  width: 30px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .header {
+    padding: 10px 20px; /* Adjust padding for smaller screens */
+  }
+
+  .navbar {
+    flex-direction: column; /* Align navigation links vertically */
+    align-items: center; /* Center navigation links */
+  }
+
+  .navbar a {
+    margin: 10px 10px; /* Adjust margin for navigation links */
+    font-size: 14px; /* Adjust font size for navigation links */
+  }
+
+  .header li img {
+    width: 150px; /* Adjust logo size for smaller screens */
+  }
+
+  .text {
+    font-size: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+
+  .heading h1 {
+    font-size: 25px;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow to text */
+  }
+
+  .heading img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 25px;
+  }
+
+  .info {
+    opacity: 1;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+    padding: 5px;
+    margin: 40px;
+    border: 1px solid transparent; /* Remove existing border */
+    border-radius: 10px; /* Add border radius for smoother edges */
+  }
+
+  .info p {
+    font-family: "Poppins", sans-serif;
+    color: var(--secondary-color);
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    text-align: justify;
+  }
+
+  .navbar {
+    position: absolute; /* Position the navbar absolutely */
+    top: 50px; /* Adjust top position to cover the menu button */
+    right: 0; /* Position on the right side */
+    z-index: 1000; /* Ensure the navbar appears above other content */
+    display: none; /* Hide navigation links by default */
+    opacity: 0; /* Initially hide with opacity */
+    transform: translateY(-10px); /* Initially move up slightly */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Add transition for smooth animation */
+    background-color: #333; /* Add background color */
+    padding: 20px; /* Add padding to create space for links */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+  }
+
+  .navbar.active {
+    display: flex; /* Show navigation links when active class is applied */
+    flex-direction: column; /* Align navigation links vertically */
+    text-align: center;
+    height: auto; /* Reset height */
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move back to original position */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 1); /* Add shadow */
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    background-color: #222; /* Change the background color */
+    color: #fff; /* Change the text color */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    position: relative; /* Ensure the menu toggle button stays in the flow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 1); /* Add shadow */
+  }
+
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar a {
+    font-size: 18px;
+    margin-left: 30px;
+  }
+
+  .heading img {
+    width: 350px;
+  }
+
+  .btn-one {
+    font-size: 36px;
+    margin: 40px;
+  }
+
+  .info p {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  .social-icons img {
+    width: 60px;
+    margin: 0 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .header {
+    padding: 20px 100px;
+  }
+
+  .navbar a {
+    font-size: 20px;
+    margin-left: 40px;
+  }
+
+  .heading img {
+    width: 400px;
+  }
+
+  .btn-one {
+    font-size: 40px;
+    margin: 50px;
+  }
+
+  .info p {
+    font-size: 21px;
+    margin-bottom: 50px;
+  }
+
+  .social-icons img {
+    width: 70px;
+    margin: 0 10px;
+  }
+}
+
+/* Add text-only mode styles */
+.text-only-mode .header li img,
+.text-only-mode .footer,
+.text-only-mode .section1::before,
+.text-only-mode .section1::after {
+  display: none; /* Hide header, footer, and background images in section1 */
+}
+
+.text-only-mode .section1,
+.text-only-mode .section2 {
+  display: block; /* Show section1 and section2 */
+}
+
+.text-only-mode .info p {
+  font-size: 22px; /* Reduce font size for better readability */
+}
+
+/* Show the normal mode button in text-only mode */
+.text-only-mode #normalModeToggle {
+  display: block;
+}
+
+
+/* Show info elements in text-only mode */
+.text-only-mode .info {
+  display: block !important; /* Override display:none */
+}
+
+/* Hide logo in section2 */
+.text-only-mode .heading img {
+  display: none;
+}
+
+
+
+

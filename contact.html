@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IST</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-9K9SW+AtKj0p0OwcMxVhgZeV+XsZZMP3MiB/gjDow1wbbjboZEXNju3C2PLFEmW5"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="position: relative">
+    <header class="header">
+      <li><img src="/ist_logo1.png" /></li>
+      <div class="menu-container">
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+      </div>
+
+      <nav class="navbar" id="navbar">
+        <a href="index.html">Home</a>
+        <a href="#">Reserve Lab</a>
+        <a href="https://my.ist.edu.pk/">My Ist</a>
+        <a href="downloads.html">Downloads</a>
+        <a href="contact.html">Contact Us</a>
+        <a>
+          <img src="/social/dark theme icon/moon.png" id="dark_icon" />
+        </a>
+        <a
+          id="textModeToggle"
+          onclick="toggleTextMode()"
+          style="background: none; border: none; cursor: pointer"
+        >
+          <img
+            src="Untitled-1-01.png"
+            alt="Text Mode"
+            style="width: 32px; height: 32px"
+          />
+        </a>
+        <a id="normalModeToggle" onclick="toggleNormalMode()" style=" display: none; background: none; border: none; cursor: pointer;">
+          <img src="Untitled-1-01.png" alt="Normal Mode" style="width: 32px; height: 32px;">
+        </a>
+        
+      </nav>
+    </header>
+
+    <div class="section1">
+      <div class="text">THIS PAGE IS UNDER DEVELOPMENT!</div>
+    </div>
+    
+    <script>
+        var dark_icon = document.getElementById("dark_icon");
+        dark_icon.onclick = function () {
+          document.body.classList.toggle("dark-theme");
+          if (document.body.classList.contains("dark-theme")) {
+            dark_icon.src = "/social/dark theme icon/sun.png";
+          } else {
+            dark_icon.src = "/social/dark theme icon/moon.png";
+          }
+        };
+  
+        function toggleMenu() {
+          var navbar = document.getElementById("navbar");
+          var menuToggle = document.querySelector(".menu-toggle");
+  
+          navbar.classList.toggle("active");
+  
+          document.addEventListener("click", function (event) {
+            if (
+              !navbar.contains(event.target) &&
+              !menuToggle.contains(event.target)
+            ) {
+              navbar.classList.remove("active");
+            }
+          });
+  
+          navbar.style.animation = "fadeInDown 0.5s ease"; // Adjust animation properties as needed
+        }
+  
+        function toggleTextMode() {
+          var body = document.body;
+          var textElements = document.querySelectorAll(".text, .info p");
+  
+          // Toggle text-only mode class on the body
+          body.classList.toggle("text-only-mode");
+  
+          // Toggle visibility of text elements
+          textElements.forEach(function (element) {
+            element.classList.toggle("hidden");
+          });
+  
+          // Toggle visibility of buttons
+          var textModeButton = document.getElementById("textModeToggle");
+          var normalModeButton = document.getElementById("normalModeToggle");
+          if (body.classList.contains("text-only-mode")) {
+            textModeButton.style.display = "none";
+            normalModeButton.style.display = "block";
+          } else {
+            textModeButton.style.display = "block";
+            normalModeButton.style.display = "none";
+          }
+        }
+  
+        function toggleNormalMode() {
+          var body = document.body;
+          var textElements = document.querySelectorAll(".text, .info p");
+  
+          // Toggle text-only mode class on the body
+          body.classList.remove("text-only-mode");
+  
+          // Toggle visibility of text elements
+          textElements.forEach(function (element) {
+            element.classList.remove("hidden");
+          });
+  
+          // Toggle visibility of buttons
+          var textModeButton = document.getElementById("textModeToggle");
+          var normalModeButton = document.getElementById("normalModeToggle");
+          textModeButton.style.display = "block";
+          normalModeButton.style.display = "none";
+        }
+      </script>
+</body>

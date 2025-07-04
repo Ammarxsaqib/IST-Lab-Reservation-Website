@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IST</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-9K9SW+AtKj0p0OwcMxVhgZeV+XsZZMP3MiB/gjDow1wbbjboZEXNju3C2PLFEmW5"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="position: relative">
+    <header class="header">
+      <li><img src="/ist_logo1.png" /></li>
+      <div class="menu-container">
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+      </div>
+
+      <nav class="navbar" id="navbar">
+        <a href="index.html">Home</a>
+        <a href="http://172.20.10.2:5000">Reserve Lab</a>
+        <a href="https://my.ist.edu.pk/">My Ist</a>
+        <a href="downloads.html">Downloads</a>
+        <a href="contact.html">Contact Us</a>
+        <a>
+          <img src="/social/dark theme icon/moon.png" id="dark_icon" />
+        </a>
+        <a
+          id="textModeToggle"
+          onclick="toggleTextMode()"
+          style="background: none; border: none; cursor: pointer"
+        >
+          <img
+            src="Untitled-1-01.png"
+            alt="Text Mode"
+            style="width: 32px; height: 32px"
+          />
+        </a>
+        <a
+          id="normalModeToggle"
+          onclick="toggleNormalMode()"
+          style="display: none; background: none; border: none; cursor: pointer"
+        >
+          <img
+            src="Untitled-1-01.png"
+            alt="Normal Mode"
+            style="width: 32px; height: 32px"
+          />
+        </a>
+      </nav>
+    </header>
+
+    <div class="section1">
+      <div class="text">INSTITUTE OF SPACE TECHNOLOGY</div>
+    </div>
+    <div class="section2">
+      <div class="heading">
+        <img src="/ist_logo1.png" alt="Institute Logo" />
+        <h1>CYBER AND INFORMATION SECURITY LAB</h1>
+      </div>
+      <div class="info" tabindex="0">
+        <p>
+          The Cyber and Information Security Lab (CISL) is a multi-disciplinary
+          state-of-the-art research lab located within the Department of
+          Electrical Engineering and Computer Science at the Institute of Space
+          technology, Islamabad. The lab is staffed with several research
+          fellows - pursuing PhD in Electrical Engg, Mathematics, Communications
+          and Information hiding with faculty members of Computer Science,
+          Electrical Engg, Avionics and Applied Mathematics Department. The
+          research at CISL encompasses design and development of network
+          applications related to cyber security, mobile networks and
+          information hiding. In addition, CISL offers different courses,
+          workshops and seminars related to computer networks, cryptography,
+          information assurance, computer forensics and network security.
+        </p>
+        <p>
+          The mission of the CIS Lab is to promote cutting-edge research in
+          finding security vulnerabilities in systems, computer network
+          application development with a security perspective and to train young
+          professionals from national and international organizations in the
+          field of network security.
+        </p>
+      </div>
+    </div>
+
+    <div class="box-1">
+      <a href="http://172.20.10.2:5000">
+        <div class="btn btn-one">
+          <span>Reserve Lab</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="center-heading">
+      <h2>SOCIALS</h2>
+    </div>
+
+    <footer class="footer">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/IST.islamabad"
+          ><img src="/social/fbw.png" alt="Facebook"
+        /></a>
+        <a href="https://twitter.com/ISTIslamabad"
+          ><img src="/social/twitterw.png" alt="Twitter"
+        /></a>
+        <a href="https://www.instagram.com/ist_islamabad"
+          ><img src="/social/instaw.png" alt="Instagram"
+        /></a>
+        <a href="https://www.linkedin.com/school/ist-islamabad/about/"
+          ><img src="/social/linkedinw.png" alt="LinkedIn"
+        /></a>
+        <a href="https://www.youtube.com/channel/UCq9INNBEtpL-FdgxDFRKhQg"
+          ><img src="/social/youtubew.png" alt="YouTube"
+        /></a>
+      </div>
+    </footer>
+
+    <script>
+      var dark_icon = document.getElementById("dark_icon");
+      dark_icon.onclick = function () {
+        document.body.classList.toggle("dark-theme");
+        if (document.body.classList.contains("dark-theme")) {
+          dark_icon.src = "/social/dark theme icon/sun.png";
+        } else {
+          dark_icon.src = "/social/dark theme icon/moon.png";
+        }
+      };
+
+      function toggleMenu() {
+        var navbar = document.getElementById("navbar");
+        var menuToggle = document.querySelector(".menu-toggle");
+
+        navbar.classList.toggle("active");
+
+        document.addEventListener("click", function (event) {
+          if (
+            !navbar.contains(event.target) &&
+            !menuToggle.contains(event.target)
+          ) {
+            navbar.classList.remove("active");
+          }
+        });
+
+        navbar.style.animation = "fadeInDown 0.5s ease"; // Adjust animation properties as needed
+      }
+
+      function toggleTextMode() {
+        var body = document.body;
+        var textElements = document.querySelectorAll(".text, .info p");
+
+        // Toggle text-only mode class on the body
+        body.classList.toggle("text-only-mode");
+
+        // Toggle visibility of text elements
+        textElements.forEach(function (element) {
+          element.classList.toggle("hidden");
+        });
+
+        // Toggle visibility of buttons
+        var textModeButton = document.getElementById("textModeToggle");
+        var normalModeButton = document.getElementById("normalModeToggle");
+        if (body.classList.contains("text-only-mode")) {
+          textModeButton.style.display = "none";
+          normalModeButton.style.display = "block";
+        } else {
+          textModeButton.style.display = "block";
+          normalModeButton.style.display = "none";
+        }
+      }
+
+      function toggleNormalMode() {
+        var body = document.body;
+        var textElements = document.querySelectorAll(".text, .info p");
+
+        // Toggle text-only mode class on the body
+        body.classList.remove("text-only-mode");
+
+        // Toggle visibility of text elements
+        textElements.forEach(function (element) {
+          element.classList.remove("hidden");
+        });
+
+        // Toggle visibility of buttons
+        var textModeButton = document.getElementById("textModeToggle");
+        var normalModeButton = document.getElementById("normalModeToggle");
+        textModeButton.style.display = "block";
+        normalModeButton.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
